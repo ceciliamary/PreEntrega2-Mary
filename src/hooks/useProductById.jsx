@@ -11,7 +11,7 @@ React.useEffect (() => {
     .catch((error) =>{
         console.log(error);
     });
-}, []);
-  return {product};
+}, [id]);
+  return {product}
 };
 

@@ -4,11 +4,12 @@ import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailCon
 import { useParams } from 'react-router-dom';
 
 const Item = () => {
-  const {id} = useParams()
-  const {product} = useProductById(id);
+  const {id} = useParams();
+  const { product } = useProductById(id);
+
   return (
     <ItemDetailContainer product={product} />
   )
-}
+  }
 
 export default Item

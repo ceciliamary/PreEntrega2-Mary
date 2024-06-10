@@ -3,12 +3,12 @@ import { getAllProducts } from "../services/products";
 
 export const useProducts = () => {
   const [products, setProducts] = React.useState([]);
-  React.useEffect(() =>{
+  React.useEffect(() => {
     getAllProducts()
-    .then((res) =>{
+    .then((res) => {
         setProducts(res.data.products);
     })
-    .catch((error) =>{
+    .catch((error) => {
         console.error(error);
     });
   }, []);

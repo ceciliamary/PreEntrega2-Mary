@@ -2,7 +2,6 @@ import { height } from "@fortawesome/free-solid-svg-icons/faCartPlus";
 import React from "react";
 import "./ItemListContainerComponent.css";
 import { useProducts } from "../../hooks/useProducts";
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
