@@ -5,14 +5,14 @@ export const useProducts = () => {
   const [products, setProducts] = React.useState([]);
   React.useEffect(() =>{
     getAllProducts()
-    .then((response) =>{
-        setProducts(response.data.products);
+    .then((res) =>{
+        setProducts(res.data.products);
     })
     .catch((error) =>{
         console.error(error);
     });
-  });
+  }, []);
   return { products };
 };
 
-export default useProducts
+

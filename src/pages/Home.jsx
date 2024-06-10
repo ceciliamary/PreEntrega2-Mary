@@ -6,9 +6,7 @@ const Home = () => {
   const { products } = useProducts();
 
   return (
-    <>
       <ItemListContainerComponent products={products} />
-    </>
   );
 };
 

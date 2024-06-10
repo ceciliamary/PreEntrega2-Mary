@@ -1,11 +1,9 @@
 .itemListContainer {
     display: flex;
-    justify-content: center;
-    align-items:center;
     color: aqua;
     font-size: 2rem;
     margin: auto;
-    width: 100vw;
+    flex-wrap: wrap;
     height: 80vh;
 }
 
