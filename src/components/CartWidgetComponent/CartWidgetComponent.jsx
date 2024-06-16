@@ -1,6 +1,9 @@
 import React from "react";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons/faCartPlus"; 
+
+import { CartContext } from "../../context/CartContext";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons/faCartPlus"; 
 
 const CartWidgetComponent = () => {
     const customStyles = {
@@ -8,11 +11,14 @@ const CartWidgetComponent = () => {
         fontSize: "1.3rem", 
         marginRight: "0.5rem"
     };
+
+    const { qtyProcucts } = React.useContext(CartContext);
+
     return (
         <div>
         <FontAwesomeIcon icon={faCartPlus} style={customStyles} />
-        <span style={customStyles}>0</span>
+        <span style={customStyles}>{qtyProcucts}</span>
         </div>
     );
 };
-export default CartWidgetComponent
+export default CartWidgetComponent;

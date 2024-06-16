@@ -1,6 +1,8 @@
 import React from 'react'
 
+
 const ItemDetailContainer = ({ product }) => {
+  
   return (
     <div style={{ display: "flex" }}>
       <div
