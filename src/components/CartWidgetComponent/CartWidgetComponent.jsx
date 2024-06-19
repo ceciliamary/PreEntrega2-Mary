@@ -12,12 +12,12 @@ const CartWidgetComponent = () => {
         marginRight: "0.5rem"
     };
 
-    const { qtyProcucts } = React.useContext(CartContext);
+    const { cart } = React.useContext(CartContext);
 
     return (
         <div>
         <FontAwesomeIcon icon={faCartPlus} style={customStyles} />
-        <span style={customStyles}>{qtyProcucts}</span>
+        <span style={customStyles}>{cart}</span>
         </div>
     );
 };

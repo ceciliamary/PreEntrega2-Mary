@@ -1,8 +1,8 @@
 import React from 'react'
-
+import { CartContext } from '../../context/CartContext';
 
 const ItemDetailContainer = ({ product }) => {
-  
+  const {cart, addToCart, removeFromCart} = React.useContext(CartContext);
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -36,6 +36,11 @@ const ItemDetailContainer = ({ product }) => {
         <p>{product.description}</p>
         <p>{product.price}</p>
       </div>
+      <div>
+        <button onClick={addToCart}>+</button>
+        <span>{cart}</span>
+        <button onClick={removeFromCart}>-</button>
+    </div>
     </div>
   );
 };

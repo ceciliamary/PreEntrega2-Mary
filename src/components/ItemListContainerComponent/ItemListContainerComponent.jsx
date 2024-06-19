@@ -16,7 +16,7 @@ return (
 <Card.Img variant="top" src={product.thumbnail} />
 <Card.Body>
   <Card.Title>{product.title}</Card.Title>
-  <Card.Text>
+  <Card.Text style={{fontSize: "18px", lineHeight: "24px"}}>
     {product.description}
   </Card.Text>
   <Link to={`/item/${product.id}`}>Ir a Detalle</Link>
