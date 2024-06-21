@@ -17,7 +17,7 @@ const CartWidgetComponent = () => {
     return (
         <div>
         <FontAwesomeIcon icon={faCartPlus} style={customStyles} />
-        <span style={customStyles}>{cart}</span>
+        <span style={customStyles}>{cart.quantity}</span>
         </div>
     );
 };

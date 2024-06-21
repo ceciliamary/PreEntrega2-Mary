@@ -2,7 +2,16 @@ import React from 'react'
 import { CartContext } from '../../context/CartContext';
 
 const ItemDetailContainer = ({ product }) => {
-  const {cart, addToCart, removeFromCart} = React.useContext(CartContext);
+  const {addToCart, removeFromCart} = React.useContext(CartContext);
+  const [quantity, setQuantity] = React.useState(0);
+  const handleAdd = () => {
+    setQuantity(quantity + 1);
+    addToCart(product, 1);
+  }
+  const handleRemove = () => {
+    setQuantity(quantity - 1);
+    removeFromCart(product, 1);
+  }
   return (
     <div style={{ display: "flex" }}>
       <div
@@ -36,10 +45,11 @@ const ItemDetailContainer = ({ product }) => {
         <p>{product.description}</p>
         <p>{product.price}</p>
       </div>
-      <div>
-        <button onClick={addToCart}>+</button>
-        <span>{cart}</span>
-        <button onClick={removeFromCart}>-</button>
+
+      <div style={{display: "flex", alignItems: "flex-end"}}>
+      <button onClick={handleRemove} style={{color: "blue"}}>-</button>
+      <span style={{margin: "0 10px"}}>{quantity}</span>
+      <button onClick={handleAdd} style={{color: "blue"}}>+</button>   
     </div>
     </div>
   );
