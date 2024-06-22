@@ -12,7 +12,8 @@ const addToCart = (product, quantity) => {
         if (existingProductIndex >= 0) {
         const newCart = [...prevCart];
         newCart[existingProductIndex] = {
-            ...newCart[existingProductIndex].quantity + quantity,
+            ...newCart[existingProductIndex], 
+            quantity: newCart[existingProductIndex].quantity + quantity,
         }; 
         return newCart;
     } else {
@@ -24,18 +25,18 @@ const addToCart = (product, quantity) => {
 const removeFromCart = (product, quantity) => {
     setCart((prevCart) => {
         return prevCart.reduce((acc, item) =>{
-            if(item.id === product.id){
+            if (item.id === product.id) {
                 const newQuantity = item.quantity - quantity;
-                if(newQuantity > 0) {
+                if (newQuantity > 0) {
                     acc.push({ ...item, quantity: newQuantity }); 
                 }
                 } else {
                     acc.push(item);
                 }
-        });
+                return acc;
+        }, []);
     });
 };
-
 return ( 
 <CartContext.Provider value={{cart, addToCart, removeFromCart}}>{children}</CartContext.Provider>
 );
