@@ -13,11 +13,12 @@ const CartWidgetComponent = () => {
     };
 
     const { cart } = React.useContext(CartContext);
-
+    
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0) 
     return (
         <div>
         <FontAwesomeIcon icon={faCartPlus} style={customStyles} />
-        <span style={customStyles}>{cart.quantity}</span>
+        <span style={customStyles}>{totalItems}</span>
         </div>
     );
 };

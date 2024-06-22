@@ -9,7 +9,6 @@ const [cart, setCart] = React.useState([]);
 const addToCart = (product, quantity) => {
     setCart((prevCart) => {
         const existingProductIndex = prevCart.findIndex ((item) => item.id === product.id);
-    
         if (existingProductIndex >= 0) {
         const newCart = [...prevCart];
         newCart[existingProductIndex] = {
@@ -17,12 +16,27 @@ const addToCart = (product, quantity) => {
         }; 
         return newCart;
     } else {
-        return [...prevCart, { ...product, quantity}];
+        return [...prevCart, { ...product, quantity }];
     }
     });
 };
-const removeFromCart = (product, quantity) =>{
-    setCart(cart - 1);
-}
-return <CartContext.Provider value={{cart, addToCart, removeFromCart}}>{children}</CartContext.Provider>
+
+const removeFromCart = (product, quantity) => {
+    setCart((prevCart) => {
+        return prevCart.reduce((acc, item) =>{
+            if(item.id === product.id){
+                const newQuantity = item.quantity - quantity;
+                if(newQuantity > 0) {
+                    acc.push({ ...item, quantity: newQuantity }); 
+                }
+                } else {
+                    acc.push(item);
+                }
+        });
+    });
+};
+
+return ( 
+<CartContext.Provider value={{cart, addToCart, removeFromCart}}>{children}</CartContext.Provider>
+);
 };
