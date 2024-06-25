@@ -43,7 +43,13 @@ const ItemDetailContainer = ({ product }) => {
       <div style={{ marginLeft: 100 }}>
         <h1>{product.title}</h1>
         <p>{product.description}</p>
-        <p>{product.price}</p>
+        <p>Precio: ${product.price}</p>
+
+        {product.stock < 10 ? (
+          <div style={{color: "red"}}>Stock: {product.stock}</div>
+        ) : (
+          <div style={{color: "green"}}>Stock: {product.stock}</div>
+      )}
       </div>
 
       <div style={{display: "flex", alignItems: "flex-end"}}>

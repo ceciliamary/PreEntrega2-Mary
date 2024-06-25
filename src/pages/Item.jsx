@@ -5,11 +5,15 @@ import { useParams } from 'react-router-dom';
 
 const Item = () => {
   const {id} = useParams();
-  const { product } = useProductById(id);
+  const { product, error } = useProductById(id);
 
-  return (
+  return error.isError ? (
+      <>
+      Ocurrio un error <div style={{color: "red"}}>{error.data}</div>, por favor contactese con <a href="mailto:example@example.com">soporte tecnico</a> e indiquele el siguiente codigo: 404{error.status}
+      </>
+    ) : ( 
     <ItemDetailContainer product={product} />
-  )
-  }
+  );
+  };
 
 export default Item
