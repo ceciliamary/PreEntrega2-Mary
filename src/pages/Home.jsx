@@ -3,10 +3,10 @@ import ItemListContainerComponent from "../components/ItemListContainerComponent
 import { useProducts } from '../hooks/useProducts'
 
 const Home = () => {
-  const { products } = useProducts();
+  const { items } = useProducts("products");
 
   return (
-      <ItemListContainerComponent products={products} />
+      <ItemListContainerComponent products={items} />
   );
 };
 
