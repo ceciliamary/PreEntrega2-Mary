@@ -1,9 +1,9 @@
 import React from 'react'
 import ItemListContainerComponent from "../components/ItemListContainerComponent/ItemListContainerComponent"
-import { useProducts } from '../hooks/useProducts'
+import { useGetCollection } from '../hooks/useGetCollection'
 
 const Home = () => {
-  const { items } = useProducts("products");
+  const { items } = useGetCollection("products");
 
   return (
       <ItemListContainerComponent products={items} />

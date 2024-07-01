@@ -1,5 +1,4 @@
 import React from 'react'
-import { getProductById } from '../services/products'
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 export const useProductById = (id) => {

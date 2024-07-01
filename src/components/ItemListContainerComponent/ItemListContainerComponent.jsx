@@ -2,7 +2,7 @@
 import React from "react";
 import { height } from "@fortawesome/free-solid-svg-icons/faCartPlus";
 import "./ItemListContainerComponent.css";
-import { useProducts } from "../../hooks/useProducts";
+import { useGetCollection } from "../../hooks/useGetCollection";
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 

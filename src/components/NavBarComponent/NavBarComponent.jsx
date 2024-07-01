@@ -5,12 +5,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidgetComponent from "../CartWidgetComponent/CartWidgetComponent";
 import { Link } from "react-router-dom";
-import { getAllCategories } from "../../services/products";
-import { useProducts } from "../../hooks/useProducts";
+import { useGetCollection } from "../../hooks/useGetCollection";
 
 
 const NavBarComponent = () => {
-  const {items} = useProducts("categories");
+  const {items} = useGetCollection("categories");
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">

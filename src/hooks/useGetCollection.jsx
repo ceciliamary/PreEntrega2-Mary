@@ -1,8 +1,7 @@
 import React from 'react'
-import { getAllProducts } from "../services/products"; 
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
-export const useProducts = (collectionName) => {
+export const useGetCollection = (collectionName) => {
   const [loading, setLoading] = React.useState(true);
   const [items, setItems] = React.useState([]);
   
