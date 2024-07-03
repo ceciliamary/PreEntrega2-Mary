@@ -7,10 +7,16 @@ import { collection, getDocs, getFirestore, query, where } from 'firebase/firest
     React.useEffect(() => {
     const db = getFirestore();
     const productsCollection = collection(db, "products");
-    const productsQuery = query(productsCollection, where("categories", "==", category))
-    getDocs(productsQuery).then((snapshot) => {
-        setProducts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    }).catch((error) => console.log(error))
+    const productsQuery = query(
+        productsCollection,
+        where("category", "==", category)
+    );
+    getDocs(productsQuery)
+    .then((snapshot) => {
+        setProducts(
+         snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    })
+    .catch((error) => console.log(error));
     }, [category]);
     return { products };
 };

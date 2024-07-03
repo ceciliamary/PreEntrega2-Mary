@@ -1,5 +1,8 @@
 import React from "react";
 import { CartContext } from "../context/CartContext";
+import { Button } from "react-bootstrap";
+import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, removeFromCart } =
@@ -8,12 +11,29 @@ const Cart = () => {
   const handleRemoveOne = (item) => {
     removeFromCart(item, 1);
   };
+ const createOrder = () => {
+
+const items = cart.map((item) => ({
+    id: item.id, 
+    title: item.title,
+    quantity: item.quantity
+  }));
+
+const order = {
+  items: items,  
+};
+
+const db = getFirestore();
+const ordersCollection = collection(db, "orders");
+
+addDoc(ordersCollection, order).then(({id}) => console.log(id))
+};
 
   return (
     <div>
       <h1>Carrito de Compras</h1>
       {cart.length > 0 ? (
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ flex: 1, padding: "10px" }}>
             {cart.map((item) => (
               <div
@@ -42,6 +62,8 @@ const Cart = () => {
               </div>
             ))}
           </div>
+          {/*<Button onClick={createOrder}>Comprar</Button>*/}
+          <Link to={'/checkout'}>Pagar</Link>
         </div>
       ) : (
         <p>Tu carrito está vacío</p>
