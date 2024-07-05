@@ -9,7 +9,7 @@ const Checkout = () => {
     const [numberPhone, setNumberPhone] = React.useState("");
 
     const { cart } = React.useContext(CartContext);
-
+    
     const createOrder = () => {
       const items = cart.map((item) => ({
           id: item.id, 
